@@ -29,8 +29,8 @@ To run the project locally, follow these steps:
 
 1. **Clone the repository** (or download the project files):
    ```bash
-   git clone <repository-url>
-   cd <project-directory>
+   git clone [<repository-url>](https://github.com/harsh2077/login-form)
+   cd login-form
 2. **Open** `index.html` in your web browser.
 
 3. **Signup and Login**
