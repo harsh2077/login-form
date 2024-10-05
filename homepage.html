@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            height: 100vh;
+        }
+    </style>
+</head>
+<body class="text-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">MyApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Career</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+            <button class="btn btn-outline-danger ml-auto" id="logoutBtn">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container text-center">
+        <h1 class="mt-5">Welcome to the Homepage!</h1>
+        <p>This page can only be accessed if you are logged in.</p>
+        <button class="btn btn-warning mt-4" id="removeAllStorageBtn">Remove All Local Storage</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Check user
+            if (localStorage.getItem('loggedIn') !== 'true') {
+                alert('You must be logged in to access this page.');
+                window.location.href = 'index.html'; // Redirect to login page
+            }
+
+            // Logout 
+            $('#logoutBtn').on('click', function() {
+                localStorage.removeItem('loggedIn');
+                alert('You have been logged out.');
+                window.location.href = 'index.html'; // Redirect to login page
+            });
+
+            // remove local storage 
+            $('#removeAllStorageBtn').on('click', function() {
+                localStorage.clear(); 
+                alert('All local storage has been cleared.');
+            });
+        });
+    </script>
+</body>
+</html>
